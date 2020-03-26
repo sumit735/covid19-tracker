@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+
+* {
+	font-family: 'Lato', sans-serif;
+	background: #1c2833;
+	color: rgb(199, 194, 194) !important;
+}
+
+.error {
+	color: red !important;
+	font-size: 40px;
+}
+
+.main-content .hidden {
+	display: none;
+}
+
+.card-list {
+	width: 85vw;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 20px;
+}
+
+.card-container {
+	margin: 0 auto;
+	/* align-items: center; */
+	margin-top: 5%;
+	margin-bottom: 5%;
+	display: flex;
+	flex-direction: column;
+	background-color: #1c2833;
+	height: 50vh;
+	width: 50vh;
+	border: 1px solid grey;
+	border-radius: 5px;
+	padding: 25px;
+	cursor: pointer;
+	-moz-osx-font-smoothing: grayscale;
+	backface-visibility: hidden;
+	transform: translateZ(0);
+	transition: transform 0.25s ease-out;
+}
+
+.card-container:hover {
+	transform: scale(1.05);
+}
+
+.card-container h2 {
+	height: 30vh;
+	font-size: 50px;
+	text-align: center;
+	text-transform: uppercase;
+	background-image: url(../img/flag.jpg);
+	background-size: 100% 100%;
+	color: transparent !important;
+	background-clip: text;
+	-webkit-background-clip: text;
+}
+
+.card-container .data {
+	/* margin-top: 20%; */
+	font-size: 25px;
+	border-collapse: separate;
+	border-spacing: 0 15px;
+}
+
+.card-container .data tr td {
+	/* word-spacing: 2px; */
+	letter-spacing: 2px;
+}
+
+.card-container .data span {
+	margin-left: 10%;
+}
+
+.red {
+	color: red !important;
+}

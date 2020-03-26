@@ -1,0 +1,16 @@
+{
+  "name": "corona-tracker",
+  "version": "1.0.0",
+  "description": "This is a corona tracker app for India only.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "author": "Sumit Kumar Dash",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.1.0"
+  }
+}
