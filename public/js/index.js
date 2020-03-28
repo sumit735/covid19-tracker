@@ -25,6 +25,7 @@ fetch('https://api.covid19india.org/data.json')
 			increasedTotalpatients.innerHTML = '(' + data.key_values[0].confirmeddelta + ')';
 			increasedDischargedpatients.innerHTML = '(' + data.key_values[0].recovereddelta + ')';
 			increasedFatal.innerHTML = '(' + data.key_values[0].deceaseddelta + ')';
+
 			function divideTimeDate(datetime) {
 				// var datetime = data.statewise[0].lastupdatedtime;
 
@@ -45,9 +46,10 @@ fetch('https://api.covid19india.org/data.json')
 			if (datetimeData.date === today) {
 				date = 'today';
 			}
+
 			function tConvert(time) {
 				// Check correct time format and split into components
-				time = time.toString().match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [ time ];
+				time = time.toString().match(/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
 
 				if (time.length > 1) {
 					// If time format correct
@@ -58,13 +60,24 @@ fetch('https://api.covid19india.org/data.json')
 				return time.join(''); // return adjusted time or original string
 			}
 
-			lastUpdated.innerHTML = 'Last updated on ' + tConvert(datetimeData.time) + ' ' + datetimeData.date;
+			lastUpdated.innerHTML = 'Last updated on <span style="color: rgb(12, 194, 12)">' + tConvert(datetimeData.time) + ' ' + datetimeData.date + '</span>';
 			// get tested data
-			var testedData = data.tested[data.tested.length - 1];
-			console.log(testedData);
+			function getTestedData(testedCount) {
+				while (testedCount >= 1) {
+					testedData = data.tested[testedCount];
+					if (testedData.totalindividualstested === "") {
+						testedCount -= 1;
+					} else {
+						return testedData;
+					}
+				}
+			}
+			testedCount = data.tested.length - 1;
+			getTestedData(testedCount);
+			// console.log(testedData);
 			divideTimeDate(testedData.updatetimestamp);
 			tested.innerHTML =
-				'We have tested ' + testedData.totalindividualstested + ' individuals till ' + datetimeData.date;
+				'We have tested <span style="color: rgb(12, 194, 12)">' + testedData.totalindividualstested + '</span> individuals till <span style="color: rgb(12, 194, 12)">' + datetimeData.date + '</span>';
 		});
 	})
 	.catch((error) => {

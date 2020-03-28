@@ -1,6 +1,4 @@
 const tbody = document.getElementById('data');
-const error = document.querySelector('.error');
-const errorMessage = "Sorry! Something went terribly wrong. Please try again later";
 
 fetch('https://api.covid19india.org/data.json').then((response) => {
     response.json().then((data) => {
@@ -9,7 +7,6 @@ fetch('https://api.covid19india.org/data.json').then((response) => {
         temp = "";
         for (var i = 1; i < count; i++) {
             var stateData = data.statewise[i];
-
             console.log(stateData.state);
             //Add the data rows.
             temp += "<tr>";

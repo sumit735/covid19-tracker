@@ -1,38 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{title}}</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+  <style>
+    @media only screen and (max-width: 768px){
+      img{
+        width: 200px;
+        height: 50px;
+        
+      }
+
+      .container {
+        max-width: 80%;
+      }
+      p:first-child {
+        margin-top: 5%;
+      }
+    }
+  </style>
 </head>
 <body>
-    
-  <div class="main-content">
-    {{>header}}
-    <div class="container" style="margin-top: 5%;">
-      <div class="row">
-          <div class="col-md-6">
-            <img src="img/pic.jpeg" class="img-responsive" style="width: 500px; height: 350px; border-radius: 5px;" alt=""> 
-          </div>
-          <div class="col-md-6">
-              <p style="font-size: 20px;">This project shows live data of positive corona patients all around India. You can go to the homepage and find the total count there. You can also go to statewise data tab to view the current counts for each state.</p><br>
-              <p style="font-size: 20px;">All the datas that are being showed are fetched from a third party API. i am not responsible for wrong datas published by it.</p>
-              <a style="font-size: 20px;" href="https://api.covid19india.org/data.json">Link to the API</a>
-          </div>
-      </div>
+  {{>header}}
+  <div class="container" style="margin-top: 5%;">
+    <div class="row">
+        <div class="col-md-6">
+          <img src="img/pic.jpeg" class="img-responsive" style="width: 500px; height: 350px; border-radius: 5px;" alt=""> 
+        </div>
+        <div class="col-md-6">
+            <p style="font-size: 20px;">This project shows live data of positive corona patients all around India. You can go to the homepage and find the total count there. You can also go to statewise data tab to view the current counts for each state.</p><br>
+            <p style="font-size: 20px;">All the data that are being showed are fetched from a third party API. i am not responsible for wrong datas published by it.</p>
+            <a style="font-size: 20px;" href="https://api.covid19india.org/data.json">Link to the API</a>
+        </div>
     </div>
-    
-    {{>footer}}
   </div>
+  
+  {{>footer}}
+    
+<script>
+  function myFunction() {
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+      x.style.transition = "display 10s ease 20s";
+    } else {
+      x.style.display = "block";
+    }
+  }
+</script>
     
     
 <script src="js/statewise.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
 </body>
 </html>

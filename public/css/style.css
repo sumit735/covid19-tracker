@@ -1,26 +1,31 @@
 @import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
 
-* {
-	font-family: 'Lato', sans-serif;
-	background: #1c2833;
-	color: rgb(199, 194, 194) !important;
-}
 
 .error {
 	color: red !important;
 	font-size: 40px;
 }
 
-.main-content .hidden {
+.hidden {
 	display: none;
 }
 
-.card-list {
-	width: 85vw;
-	margin: 0 auto;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-gap: 20px;
+body {
+	font-family: 'Lato', sans-serif;
+	color: rgb(199, 194, 194) !important;
+	background-color: #1c2833 !important;
+}
+
+body a {
+	text-decoration: none;
+}
+
+.container {
+	max-width: auto;
+	margin: auto;
+	height: auto;
+	color: white;
+	/*border-radius: 10px;*/
 }
 
 .card-container {
@@ -31,8 +36,8 @@
 	display: flex;
 	flex-direction: column;
 	background-color: #1c2833;
-	height: 50vh;
-	width: 50vh;
+	height: auto;
+	width: auto;
 	border: 1px solid grey;
 	border-radius: 5px;
 	padding: 25px;
@@ -43,8 +48,62 @@
 	transition: transform 0.25s ease-out;
 }
 
-.card-container:hover {
-	transform: scale(1.05);
+.card-container h3 {
+	height: 30vh;
+	font-size: 50px;
+	text-align: center;
+	text-transform: uppercase;
+	/*background-image: url(../img/flag.jpg);
+	  background-size: 100% 100%;
+	  color: transparent !important;
+	  background-clip: text;
+	  -webkit-background-clip: text;*/
+}
+
+.borderless>tbody>tr>td {
+	border: none !important;
+	font-size: 25px;
+}
+
+.topnav {
+	overflow: hidden;
+	background-color: #1c2833;
+	position: relative;
+}
+
+.topnav #myLinks {
+	display: none;
+	transition: all 2s;
+}
+
+.topnav a {
+	color: white;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+	display: block;
+}
+
+.topnav a.icon {
+	background: black;
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+.topnav a:hover {
+	color: #fff;
+}
+
+.topnav a:active {
+	color: #fff;
+}
+
+
+.active {
+	background-color: #1c2833;
+	color: white;
 }
 
 .card-container h2 {
