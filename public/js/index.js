@@ -22,9 +22,9 @@ fetch('https://api.covid19india.org/data.json')
 			dischargedpatients.innerHTML = data.statewise[0].recovered;
 			fatal.innerHTML = data.statewise[0].deaths;
 			activepatients.innerHTML = data.statewise[0].active;
-			increasedTotalpatients.innerHTML = '(' + data.key_values[0].confirmeddelta + ')';
-			increasedDischargedpatients.innerHTML = '(' + data.key_values[0].recovereddelta + ')';
-			increasedFatal.innerHTML = '(' + data.key_values[0].deceaseddelta + ')';
+			increasedTotalpatients.innerHTML = '(' + data.statewise[0].deltaconfirmed + ')';
+			increasedDischargedpatients.innerHTML = '(' + data.statewise[0].deltarecovered + ')';
+			increasedFatal.innerHTML = '(' + data.statewise[0].deltadeaths + ')';
 
 			function divideTimeDate(datetime) {
 				// var datetime = data.statewise[0].lastupdatedtime;
@@ -65,7 +65,7 @@ fetch('https://api.covid19india.org/data.json')
 			function getTestedData(testedCount) {
 				while (testedCount >= 1) {
 					testedData = data.tested[testedCount];
-					if (testedData.totalindividualstested === "") {
+					if (testedData.totalsamplestested === "") {
 						testedCount -= 1;
 					} else {
 						return testedData;
@@ -74,10 +74,10 @@ fetch('https://api.covid19india.org/data.json')
 			}
 			testedCount = data.tested.length - 1;
 			getTestedData(testedCount);
-			// console.log(testedData);
+			console.log(testedData);
 			divideTimeDate(testedData.updatetimestamp);
 			tested.innerHTML =
-				'We have tested <span style="color: rgb(12, 194, 12)">' + testedData.totalindividualstested + '</span> individuals till <span style="color: rgb(12, 194, 12)">' + datetimeData.date + '</span>';
+				'We have tested <span style="color: rgb(12, 194, 12)">' + testedData.totalsamplestested + '</span> individuals till <span style="color: rgb(12, 194, 12)">' + datetimeData.date + '</span>';
 		});
 	})
 	.catch((error) => {

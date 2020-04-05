@@ -49,7 +49,7 @@ app.get('/contact', (req, res) => {
 
 app.get('*', (req, res) => {
     res.render('404', {
-        title: '404 | Site Not Found',
+        title: '404 | Page Not Found',
         name: 'sumit'
     });
 });
